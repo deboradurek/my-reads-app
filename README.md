@@ -6,8 +6,10 @@ The starter template was provided to save time. It contains a static example of 
 
 ## Getting Started
 
-- install all project dependencies with `npm install`
-- start the development server with `npm start`
+All you need to get started is here:
+
+- Install all project dependencies with `npm install`
+- Start the development server with `npm start`
 
 ## What You're Getting
 
