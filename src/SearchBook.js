@@ -12,6 +12,18 @@ class SearchBook extends Component {
     booksFound: [],
   };
 
+  handleQuery = (event) => {
+    const value = event.target.value;
+
+    this.setState(() => ({
+      query: value,
+    }));
+  };
+
+  clearQuery = () => {
+    this.handleQuery('');
+  };
+
   render() {
     const { query, booksFound } = this.state;
     const { onRefreshBookshelves } = this.props;
