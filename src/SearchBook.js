@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import throttle from 'lodash.throttle';
 import * as BooksAPI from './BooksAPI';
 import Bookshelf from './Bookshelf';
 
 class SearchBook extends Component {
-  //   static propTypes = {};
+  static propTypes = {
+    booksByShelf: PropTypes.object.isRequired,
+    onRefreshBookshelves: PropTypes.func.isRequired,
+  };
 
   state = {
     query: '',
