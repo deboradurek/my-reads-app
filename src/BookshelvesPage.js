@@ -15,12 +15,20 @@ class BookshelvesPage extends Component {
     return (
       <div className="list-books-content">
         <div className="list-books">
+          <div className="list-books-title">
+            <h1>MyReads</h1>
+          </div>
           {shelves.map((shelf) => (
             <div key={shelf.term} className="bookshelf">
               <h2 className="bookshelf-title">{shelf.title}</h2>
               <div className="bookshelf-books"></div>
             </div>
           ))}
+          <div className="open-search">
+            <Link to="/search">
+              <button>Add a book</button>
+            </Link>
+          </div>
         </div>
       </div>
     );
