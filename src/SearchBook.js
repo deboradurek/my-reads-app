@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 // import PropTypes from 'prop-types';
+import throttle from 'lodash.throttle';
 import * as BooksAPI from './BooksAPI';
 import Bookshelf from './Bookshelf';
 
@@ -18,7 +19,24 @@ class SearchBook extends Component {
     this.setState(() => ({
       query: value,
     }));
+
+    this.updateBooksFound(value);
   };
+
+  updateBooksFound = throttle((searchTerm) => {
+    searchTerm &&
+      BooksAPI.search(searchTerm).then((foundBooks) => {
+        if (!foundBooks.error) {
+          this.setState({
+            booksFound: foundBooks,
+          });
+        } else {
+          this.setState({
+            booksFound: [],
+          });
+        }
+      });
+  }, 250);
 
   clearQuery = () => {
     this.handleQuery('');
