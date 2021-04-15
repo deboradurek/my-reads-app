@@ -10,6 +10,7 @@ class Bookshelf extends Component {
 
   render() {
     const { booksPerShelf, onRefreshBookshelves } = this.props;
+
     return (
       <ol className="books-grid">
         {booksPerShelf.map((book) => (

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import BookshelfChanger from './BookshelfChanger';
 import * as BooksAPI from './BooksAPI';
+import coverNotFound from './images/default_book_cover.jpg';
 
 class Book extends Component {
   static propTypes = {
@@ -17,7 +18,6 @@ class Book extends Component {
 
   render() {
     const { book } = this.props;
-    // console.log(book);
 
     return (
       <div className="book">
@@ -27,13 +27,13 @@ class Book extends Component {
             style={{
               width: 128,
               height: 192,
-              backgroundImage: `url("${book.imageLinks.thumbnail}")`,
+              backgroundImage: `url("${book.imageLinks?.thumbnail ?? coverNotFound}")`,
             }}
           ></div>
           <BookshelfChanger onUpdateShelf={this.handleUpdateShelf} shelf={book.shelf} />
         </div>
         <div className="book-title">{book.title}</div>
-        <div className="book-authors">{book.authors.join(', ')}</div>
+        <div className="book-authors">{book.authors?.join(', ')}</div>
       </div>
     );
   }
