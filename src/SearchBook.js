@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import * as BooksAPI from './BooksAPI';
 import Bookshelf from './Bookshelf';
 
-class SeachBook extends Component {
+class SearchBook extends Component {
   //   static propTypes = {};
 
   state = {
@@ -34,7 +34,11 @@ class SeachBook extends Component {
             <input type="text" placeholder="Search by title or author" />
           </form>
         </div>
-        <div className="search-books-results"></div>
+        <div className="search-books-results">
+          {query !== '' && (
+            <Bookshelf booksPerShelf={booksFound} onRefreshBookshelves={onRefreshBookshelves} />
+          )}
+        </div>
       </div>
     );
   }
