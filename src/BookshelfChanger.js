@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 class BookshelfChanger extends Component {
   static propTypes = {
     onUpdateShelf: PropTypes.func.isRequired,
+    shelf: PropTypes.string,
   };
 
   updateShelf = (event) => {
@@ -12,13 +13,11 @@ class BookshelfChanger extends Component {
   };
 
   render() {
+    const { shelf } = this.props;
+
     return (
       <div className="book-shelf-changer">
-        <select
-          name="bookshelf-selector"
-          defaultValue="currentlyReading"
-          onChange={this.updateShelf}
-        >
+        <select name="bookshelf-selector" defaultValue={shelf} onChange={this.updateShelf}>
           <option value="move" disabled>
             Move to...
           </option>
