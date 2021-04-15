@@ -27,6 +27,16 @@ class BooksApp extends Component {
   };
 
   render() {
+    const { books } = this.state;
+
+    const booksByShelf = books.reduce(
+      (acc, book) => ({
+        ...acc,
+        [book.id]: book.shelf,
+      }),
+      {}
+    );
+
     return (
       <div className="app">
         <Route

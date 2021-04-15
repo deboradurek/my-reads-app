@@ -24,11 +24,17 @@ class SearchBook extends Component {
   };
 
   updateBooksFound = throttle((searchTerm) => {
+    const { booksByShelf } = this.props;
+
     searchTerm &&
       BooksAPI.search(searchTerm).then((foundBooks) => {
         if (!foundBooks.error) {
+          const updateFoundBooks = foundBooks.map((foundBook) => ({
+            ...foundBook,
+            shelf: booksByShelf[foundBook.id] ?? 'none',
+          }));
           this.setState({
-            booksFound: foundBooks,
+            booksFound: updateFoundBooks,
           });
         } else {
           this.setState({
@@ -38,14 +44,9 @@ class SearchBook extends Component {
       });
   }, 250);
 
-  clearQuery = () => {
-    this.handleQuery('');
-  };
-
   render() {
     const { query, booksFound } = this.state;
     const { onRefreshBookshelves } = this.props;
-    console.log('booksfound', booksFound);
 
     return (
       <div className="search-books">
