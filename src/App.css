@@ -10,21 +10,24 @@ body {
 
 body,
 .app {
-  background: white;
+  background: #f4fafc;
 }
 
 /* main page */
 
 .list-books-title {
   padding: 10px 0;
-  background: #2e7c31;
+  background: #7b113a;
   text-align: center;
+  margin-bottom: 30px;
 }
 
 .list-books-title h1 {
-  font-weight: 400;
-  margin: 0;
+  font-family: 'Merienda', cursive;
+  font-weight: 700;
+  margin: 5px;
   color: white;
+  font-size: 3rem;
 }
 
 .list-books-content {
@@ -38,16 +41,21 @@ body,
 
 @media (min-width: 600px) {
   .bookshelf {
-    padding: 0 20px 40px;
+    padding: 0 20px 20px;
   }
 }
 
 .bookshelf-title {
-  border-bottom: 1px solid #dedede;
+  border-bottom: 1px solid #8fd6e1;
+  color: #150e56;
+  font-family: 'Merienda', cursive;
+  padding-bottom: 8px;
+  font-size: 1.6rem;
 }
 
 .bookshelf-books {
   text-align: center;
+  padding-top: 20px;
 }
 
 .open-search {
@@ -61,25 +69,28 @@ body,
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: #2e7d32;
+  background: #7b113a;
   background-image: url('./icons/add.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 28px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.3);
   font-size: 0;
   outline: 0;
+  border-style: none;
   cursor: pointer;
+  transition: all 0.3s;
 }
 
 .open-search button:hover {
-  background-color: rgb(0, 102, 0);
+  background-color: #500824;
+  transform: scale(1.2);
 }
 
 /* search page */
 
 .search-books-bar {
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
   top: 0;
   left: 0;
@@ -99,6 +110,13 @@ body,
   font-size: 1.25em;
   border: none;
   outline: none;
+  color: #150e56;
+}
+
+.search-books-bar input::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #1597bb;
+  opacity: 1; /* Firefox */
 }
 
 .close-search {
@@ -115,6 +133,12 @@ body,
   border: none;
   outline: none;
   cursor: pointer;
+  background-color: #7b113a;
+  transition: all 0.3s;
+}
+.close-search:hover {
+  background-color: #500824;
+  transform: scale(1.2);
 }
 
 button:active {
@@ -173,12 +197,18 @@ button:active {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #60ac5d;
+  background-color: #1597bb;
   background-image: url('./icons/arrow-drop-down.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 20px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: all 0.3s;
+}
+
+.book-shelf-changer:hover {
+  background-color: #137591;
+  transform: scale(1.2);
 }
 
 .book-shelf-changer select {
