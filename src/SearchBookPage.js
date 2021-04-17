@@ -5,7 +5,7 @@ import throttle from 'lodash.throttle';
 import * as BooksAPI from './BooksAPI';
 import BookshelfResults from './BookshelfResults';
 
-class SearchBook extends Component {
+class SearchBookPage extends Component {
   static propTypes = {
     booksByShelf: PropTypes.object.isRequired,
     onUpdateBook: PropTypes.func.isRequired,
@@ -81,4 +81,4 @@ class SearchBook extends Component {
   }
 }
 
-export default SearchBook;
+export default SearchBookPage;
