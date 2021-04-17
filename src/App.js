@@ -2,32 +2,43 @@ import React, { Component } from 'react';
 import * as BooksAPI from './BooksAPI';
 import './App.css';
 import BookshelvesPage from './BookshelvesPage';
-import SearchBook from './SearchBook';
+import SearchBookPage from './SearchBookPage';
 import { Route } from 'react-router-dom';
+import Loading from './Loading';
 
 class BooksApp extends Component {
   state = {
     books: [],
+    loading: false,
   };
 
   componentDidMount() {
-    BooksAPI.getAll().then((books) => {
-      this.setState({
-        books,
-      });
-    });
+    this.handleRefreshBookshelves();
   }
 
-  refreshBookshelves = () => {
+  // Callback for Book component, that updates a single book's shelf
+  updateBook = (bookId, shelf) => {
+    this.setState({ loading: true });
+
+    BooksAPI.update(bookId, shelf).then(() => {
+      this.handleRefreshBookshelves();
+    });
+  };
+
+  // Get all books from endpoint /books
+  handleRefreshBookshelves = () => {
+    this.setState({ loading: true });
+
     BooksAPI.getAll().then((books) => {
       this.setState({
         books,
+        loading: false,
       });
     });
   };
 
   render() {
-    const { books } = this.state;
+    const { books, loading } = this.state;
 
     const booksByShelf = books.reduce(
       (acc, book) => ({
@@ -42,19 +53,15 @@ class BooksApp extends Component {
         <Route
           exact
           path="/"
-          render={() => (
-            <BookshelvesPage books={books} onRefreshBookshelves={this.refreshBookshelves} />
-          )}
+          render={() => <BookshelvesPage books={books} onUpdateBook={this.updateBook} />}
         />
         <Route
           path="/search"
           render={() => (
-            <SearchBook
-              booksByShelf={booksByShelf}
-              onRefreshBookshelves={this.refreshBookshelves}
-            />
+            <SearchBookPage booksByShelf={booksByShelf} onUpdateBook={this.updateBook} />
           )}
         />
+        {loading && <Loading />}
       </div>
     );
   }
