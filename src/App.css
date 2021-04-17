@@ -170,6 +170,20 @@ button:active {
   width: 140px;
 }
 
+.favourite-book {
+  position: absolute;
+  background-repeat: no-repeat;
+  width: 26px;
+  height: 26px;
+  right: -7px;
+  top: -10px;
+  cursor: pointer;
+}
+
+.favourite-book:hover {
+  background-image: url('./icons/star-solid.svg') !important;
+}
+
 .book-title,
 .book-authors {
   font-size: 0.8em;
