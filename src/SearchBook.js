@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import throttle from 'lodash.throttle';
 import * as BooksAPI from './BooksAPI';
-import Bookshelf from './Bookshelf';
+import BookshelfResults from './BookshelfResults';
 
 class SearchBook extends Component {
   static propTypes = {
     booksByShelf: PropTypes.object.isRequired,
-    onRefreshBookshelves: PropTypes.func.isRequired,
+    onUpdateBook: PropTypes.func.isRequired,
   };
 
   state = {
@@ -49,10 +49,13 @@ class SearchBook extends Component {
 
   render() {
     const { query, booksFound } = this.state;
-    const { onRefreshBookshelves } = this.props;
+    const { onUpdateBook } = this.props;
 
     return (
       <div className="search-books">
+        <div className="list-books-title">
+          <h1>MyReads</h1>
+        </div>
         <div className="search-books-bar">
           <Link to="/">
             <button className="close-search">Close</button>
@@ -70,7 +73,7 @@ class SearchBook extends Component {
         </div>
         <div className="search-books-results">
           {query !== '' && (
-            <Bookshelf booksPerShelf={booksFound} onRefreshBookshelves={onRefreshBookshelves} />
+            <BookshelfResults booksPerShelf={booksFound} onUpdateBook={onUpdateBook} />
           )}
         </div>
       </div>
