@@ -15,6 +15,18 @@ class Book extends Component {
     favourite: localStorage.getItem(this.props.book.id) === 'true',
   };
 
+  handleUpdateShelf = (newShelf) => {
+    this.props.onUpdateBook(this.props.book.id, newShelf);
+  };
+
+  setFavourite = () => {
+    const stared = !this.state.favourite;
+    localStorage.setItem(this.props.book.id, stared);
+    this.setState({
+      favourite: stared,
+    });
+  };
+
   render() {
     const { book } = this.props;
     const starImage = this.state.favourite ? StarSolid : StarBorder;
@@ -35,7 +47,7 @@ class Book extends Component {
               backgroundImage: `url("${book.imageLinks?.thumbnail ?? CoverNotFound}")`,
             }}
           ></div>
-          <BookshelfChanger shelf={book.shelf} />
+          <BookshelfChanger onUpdateShelf={this.handleUpdateShelf} shelf={book.shelf} />
         </div>
         <div className="book-title">{book.title}</div>
         <div className="book-authors">{book.authors?.join(', ')}</div>
