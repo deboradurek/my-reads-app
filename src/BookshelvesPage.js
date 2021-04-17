@@ -1,14 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Bookshelf from './Bookshelf';
+import BookshelfMain from './BookshelfMain';
+import { DragDropContext } from 'react-beautiful-dnd';
 
-const BookshelvesPage = ({ books, onRefreshBookshelves }) => {
+const BookshelvesPage = ({ books, onUpdateBook }) => {
   const shelves = [
-    { title: 'Currently Reading', term: 'currentlyReading' },
-    { title: 'Want to Read', term: 'wantToRead' },
-    { title: 'Read', term: 'read' },
+    { title: 'Currently Reading', id: 'currentlyReading' },
+    { title: 'Want to Read', id: 'wantToRead' },
+    { title: 'Read', id: 'read' },
   ];
+
+  const onDragEnd = ({ destination, source, draggableId }) => {
+    if (destination) {
+      if (destination.droppableId !== source.droppableId) {
+        onUpdateBook(draggableId, destination.droppableId);
+      }
+    }
+  };
 
   return (
     <div className="list-books-content">
@@ -16,17 +25,20 @@ const BookshelvesPage = ({ books, onRefreshBookshelves }) => {
         <div className="list-books-title">
           <h1>MyReads</h1>
         </div>
-        {shelves.map((shelf) => (
-          <div key={shelf.term} className="bookshelf">
-            <h2 className="bookshelf-title">{shelf.title}</h2>
-            <div className="bookshelf-books">
-              <Bookshelf
-                booksPerShelf={books.filter((book) => book.shelf === shelf.term)}
-                onRefreshBookshelves={onRefreshBookshelves}
-              />
+        <DragDropContext onDragEnd={onDragEnd}>
+          {shelves.map((shelf, index) => (
+            <div key={shelf.id} className="bookshelf">
+              <h2 className="bookshelf-title">{shelf.title}</h2>
+              <div className="bookshelf-books">
+                <BookshelfMain
+                  shelfId={shelf.id}
+                  booksPerShelf={books.filter((book) => book.shelf === shelf.id)}
+                  onUpdateBook={onUpdateBook}
+                />
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </DragDropContext>
         <div className="open-search">
           <Link to="/search">
             <button>Add a book</button>
@@ -39,7 +51,7 @@ const BookshelvesPage = ({ books, onRefreshBookshelves }) => {
 
 BookshelvesPage.propTypes = {
   books: PropTypes.array.isRequired,
-  onRefreshBookshelves: PropTypes.func.isRequired,
+  onUpdateBook: PropTypes.func.isRequired,
 };
 
 export default BookshelvesPage;
