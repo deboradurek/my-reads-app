@@ -3,6 +3,7 @@ import * as BooksAPI from './BooksAPI';
 import './App.css';
 import BookshelvesPage from './BookshelvesPage';
 import SearchBookPage from './SearchBookPage';
+import FavouriteBooks from './FavouriteBooks';
 import { Route } from 'react-router-dom';
 import Loading from './Loading';
 
@@ -64,6 +65,7 @@ class BooksApp extends Component {
             <SearchBookPage booksByShelf={booksByShelf} onUpdateBook={this.updateBook} />
           )}
         />
+        <Route path="/favourites" render={() => <FavouriteBooks booksByShelf={booksByShelf} />} />
         {loading && <Loading />}
       </div>
     );
