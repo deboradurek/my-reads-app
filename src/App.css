@@ -11,9 +11,10 @@ body {
 body,
 .app {
   background: #f4fafc;
+  font-family: 'Roboto', sans-serif;
 }
 
-/* main page */
+/* shared */
 
 .list-books-title {
   padding: 10px 0;
@@ -33,9 +34,35 @@ body,
   font-size: 3rem;
 }
 
+/* main page */
+
 .list-books-content {
   padding: 0 0 80px;
   flex: 1;
+}
+
+.favourites-option {
+  text-align: end;
+  margin: 50px 20px 40px;
+}
+
+.favourites-option button {
+  background: #7b113a;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.3);
+  font-size: 1rem;
+  /* font-weight: 700; */
+  color: #fff;
+  padding: 8px 28px;
+  border-radius: 10px;
+  outline: 0;
+  border-style: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Roboto', sans-serif;
+}
+
+.favourites-option button:hover {
+  background-color: #500824;
 }
 
 .bookshelf {
@@ -51,7 +78,6 @@ body,
 .bookshelf-title {
   border-bottom: 1px solid #8fd6e1;
   color: #150e56;
-  font-family: 'Merienda', cursive;
   padding-bottom: 8px;
   font-size: 1.6rem;
 }
@@ -119,6 +145,7 @@ body,
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #1597bb;
   opacity: 1; /* Firefox */
+  font-size: 1.1rem;
 }
 
 .close-search {
@@ -145,6 +172,20 @@ body,
 
 .search-books-results {
   padding: 80px 10px 20px;
+}
+
+/* favourites page */
+
+.back-to-main {
+  display: flex;
+  align-items: center;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.19);
+}
+
+.back-to-main span {
+  color: #150e56;
+  font-size: 1.1rem;
+  margin-left: 20px;
 }
 
 /* books grid */
@@ -244,6 +285,7 @@ body,
 }
 
 /* loading */
+
 .overlay {
   position: fixed;
   width: 100%;
@@ -262,11 +304,11 @@ body,
   background-repeat: no-repeat;
   width: 50px;
   height: 50px;
-  -webkit-animation: icon-spin 3s infinite linear;
-  animation: icon-spin 3s infinite linear;
+  -webkit-animation: spinner 2s infinite linear;
+  animation: spinner 2s infinite linear;
 }
 
-@-webkit-keyframes icon-spin {
+@-webkit-keyframes spinner {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
@@ -277,7 +319,7 @@ body,
   }
 }
 
-@keyframes icon-spin {
+@keyframes spinner {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
