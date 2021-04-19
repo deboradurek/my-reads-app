@@ -41,6 +41,7 @@ class BooksApp extends Component {
   render() {
     const { books, loading } = this.state;
 
+    // New array containing bookId and current shelf
     const booksByShelf = books.reduce(
       (acc, book) => ({
         ...acc,
@@ -65,7 +66,10 @@ class BooksApp extends Component {
             <SearchBookPage booksByShelf={booksByShelf} onUpdateBook={this.updateBook} />
           )}
         />
-        <Route path="/favourites" render={() => <FavouriteBooks booksByShelf={booksByShelf} />} />
+        <Route
+          path="/favourites"
+          render={() => <FavouriteBooks books={books} onUpdateBook={this.updateBook} />}
+        />
         {loading && <Loading />}
       </div>
     );

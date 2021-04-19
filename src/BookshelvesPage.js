@@ -21,6 +21,13 @@ const BookshelvesPage = ({ books, onUpdateBook }) => {
 
   return (
     <div className="list-books-content">
+      <div>
+        <form className="favourites-option">
+          <Link to="/favourites">
+            <button>See Favourites</button>
+          </Link>
+        </form>
+      </div>
       <div className="list-books">
         <DragDropContext onDragEnd={onDragEnd}>
           {shelves.map((shelf, index) => (
