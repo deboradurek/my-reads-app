@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import BookshelfResults from './BookshelfResults';
 
 const FavouriteBooks = ({ books, onUpdateBook }) => {
+  // New array containing only favourited books
+  const favouriteList = books.filter((book) => localStorage.getItem(book.id) === 'true');
+
   return (
     <div>
       <div className="back-to-main">
@@ -13,7 +16,7 @@ const FavouriteBooks = ({ books, onUpdateBook }) => {
         <span>Back To Bookshelves</span>
       </div>
       <div className="search-books-results">
-        <BookshelfResults onUpdateBook={onUpdateBook} />
+        <BookshelfResults booksByShelf={favouriteList} onUpdateBook={onUpdateBook} />
       </div>
     </div>
   );
