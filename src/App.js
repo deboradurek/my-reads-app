@@ -50,6 +50,9 @@ class BooksApp extends Component {
 
     return (
       <div className="app">
+        <div className="list-books-title">
+          <h1>MyReads</h1>
+        </div>
         <Route
           exact
           path="/"

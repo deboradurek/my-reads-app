@@ -22,9 +22,6 @@ const BookshelvesPage = ({ books, onUpdateBook }) => {
   return (
     <div className="list-books-content">
       <div className="list-books">
-        <div className="list-books-title">
-          <h1>MyReads</h1>
-        </div>
         <DragDropContext onDragEnd={onDragEnd}>
           {shelves.map((shelf, index) => (
             <div key={shelf.id} className="bookshelf">

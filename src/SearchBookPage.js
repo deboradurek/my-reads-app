@@ -53,9 +53,6 @@ class SearchBookPage extends Component {
 
     return (
       <div className="search-books">
-        <div className="list-books-title">
-          <h1>MyReads</h1>
-        </div>
         <div className="search-books-bar">
           <Link to="/">
             <button className="close-search">Close</button>
