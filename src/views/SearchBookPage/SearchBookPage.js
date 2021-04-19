@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import throttle from 'lodash.throttle';
-import * as BooksAPI from './BooksAPI';
-import BookshelfResults from './BookshelfResults';
+import * as BooksAPI from '../../api/BooksAPI';
+import BookshelfResults from '../../components/BookshelfResults';
 
 class SearchBookPage extends Component {
   static propTypes = {

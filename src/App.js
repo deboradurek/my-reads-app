@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import * as BooksAPI from './BooksAPI';
+import * as BooksAPI from './api/BooksAPI';
 import './App.css';
-import BookshelvesPage from './BookshelvesPage';
-import SearchBookPage from './SearchBookPage';
-import FavouriteBooks from './FavouriteBooks';
+import BookshelvesPage from './views/BookshelvesPage/BookshelvesPage';
+import SearchBookPage from './views/SearchBookPage/SearchBookPage';
+import FavouriteBooksPage from './views/FavouriteBooksPage/FavouriteBooksPage';
 import { Route } from 'react-router-dom';
-import Loading from './Loading';
+import Loading from './components/Loading';
 
 class BooksApp extends Component {
   state = {
@@ -68,7 +68,7 @@ class BooksApp extends Component {
         />
         <Route
           path="/favourites"
-          render={() => <FavouriteBooks books={books} onUpdateBook={this.updateBook} />}
+          render={() => <FavouriteBooksPage books={books} onUpdateBook={this.updateBook} />}
         />
         {loading && <Loading />}
       </div>

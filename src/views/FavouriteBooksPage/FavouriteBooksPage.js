@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import BookshelfResults from './BookshelfResults';
+import BookshelfResults from '../../components/BookshelfResults';
 
-const FavouriteBooks = ({ books, onUpdateBook }) => {
+const FavouriteBooksPage = ({ books, onUpdateBook }) => {
   // New array containing only favourited books
   const favouriteList = books.filter((book) => localStorage.getItem(book.id) === 'true');
 
@@ -26,9 +26,9 @@ const FavouriteBooks = ({ books, onUpdateBook }) => {
   );
 };
 
-FavouriteBooks.prototypes = {
+FavouriteBooksPage.prototypes = {
   books: PropTypes.array.isRequired,
   onUpdateBook: PropTypes.func.isRequired,
 };
 
-export default FavouriteBooks;
+export default FavouriteBooksPage;

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import BookshelfChanger from './BookshelfChanger';
-import CoverNotFound from './images/default_book_cover.jpg';
-import StarBorder from './icons/star-border.svg';
-import StarSolid from './icons/star-solid.svg';
+import CoverNotFound from '../images/default_book_cover.jpg';
+import StarBorder from '../icons/star-border.svg';
+import StarSolid from '../icons/star-solid.svg';
 
 class Book extends Component {
   static propTypes = {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import BookshelfMain from './BookshelfMain';
+import BookshelfMain from './components/BookshelfMain';
 import { DragDropContext } from 'react-beautiful-dnd';
 
 const BookshelvesPage = ({ books, onUpdateBook }) => {
