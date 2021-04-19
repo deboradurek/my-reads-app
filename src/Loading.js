@@ -3,7 +3,7 @@ import React from 'react';
 function Loading() {
   return (
     <div className="overlay">
-      <h1>Loading...</h1>
+      <div className="spinner"></div>
     </div>
   );
 }
