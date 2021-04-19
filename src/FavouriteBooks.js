@@ -16,7 +16,11 @@ const FavouriteBooks = ({ books, onUpdateBook }) => {
         <span>Back To Bookshelves</span>
       </div>
       <div className="search-books-results">
-        <BookshelfResults booksByShelf={favouriteList} onUpdateBook={onUpdateBook} />
+        {favouriteList.length > 0 ? (
+          <BookshelfResults booksByShelf={favouriteList} onUpdateBook={onUpdateBook} />
+        ) : (
+          <p className="no-books-message">You don't have any favourite books, yet!</p>
+        )}
       </div>
     </div>
   );

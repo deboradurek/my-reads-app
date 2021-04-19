@@ -185,7 +185,13 @@ body,
 .back-to-main span {
   color: #150e56;
   font-size: 1.1rem;
+  font-weight: 700;
   margin-left: 20px;
+}
+
+.no-books-message {
+  color: #1597bb;
+  text-align: center;
 }
 
 /* books grid */
