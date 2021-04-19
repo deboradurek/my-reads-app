@@ -65,12 +65,12 @@ class SearchBookPage extends Component {
                   However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
                   you don't find a specific author or title. Every search is limited by search terms.
                 */}
-            <input type="text" placeholder="Search by title or author" />
+            <input type="text" placeholder="Search here by title or author" />
           </form>
         </div>
         <div className="search-books-results">
           {query !== '' && (
-            <BookshelfResults booksPerShelf={booksFound} onUpdateBook={onUpdateBook} />
+            <BookshelfResults booksByShelf={booksFound} onUpdateBook={onUpdateBook} />
           )}
         </div>
       </div>

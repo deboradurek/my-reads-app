@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Book from './Book';
 import { Draggable, Droppable } from 'react-beautiful-dnd';
 
-const BookshelfDragabble = ({ shelfId, booksPerShelf, onUpdateBook }) => (
+const BookshelfMain = ({ shelfId, booksPerShelf, onUpdateBook }) => (
   <Droppable droppableId={shelfId} direction="horizontal" type="COLUMN">
     {(provided) => (
       <ol className="books-grid" ref={provided.innerRef} {...provided.droppableProps}>
@@ -26,9 +26,9 @@ const BookshelfDragabble = ({ shelfId, booksPerShelf, onUpdateBook }) => (
   </Droppable>
 );
 
-BookshelfDragabble.propTypes = {
+BookshelfMain.propTypes = {
   booksPerShelf: PropTypes.array.isRequired,
   onUpdateBook: PropTypes.func.isRequired,
 };
 
-export default BookshelfDragabble;
+export default BookshelfMain;

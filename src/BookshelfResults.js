@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Book from './Book';
 
-const BookshelfResults = ({ booksPerShelf, onUpdateBook }) => (
+const BookshelfResults = ({ booksByShelf, onUpdateBook }) => (
   <ol className="books-grid">
-    {booksPerShelf.map((book) => (
+    {booksByShelf.map((book) => (
       <li key={book.id}>
         <Book book={book} onUpdateBook={onUpdateBook} />
       </li>
@@ -13,7 +13,7 @@ const BookshelfResults = ({ booksPerShelf, onUpdateBook }) => (
 );
 
 BookshelfResults.propTypes = {
-  booksPerShelf: PropTypes.array.isRequired,
+  booksByShelf: PropTypes.array.isRequired,
   onUpdateBook: PropTypes.func.isRequired,
 };
 
