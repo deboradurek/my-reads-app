@@ -1,8 +1,31 @@
 # MyReads Project
 
-This project is the final assessment project for Udacity's React Fundamentals course.
+This project is part of the requirements for the React Nanodegree Program, by Udacity. It is also the final assessment project for the React Fundamentals course.
 
-The starter template was provided to save time. It contains a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. Interactivity will need to be added to the app by refactoring the static code in this template.
+## About MyReads
+
+**MyReads project** is a bookshelf app that allows you to select and categorize books you are currently reading, want to read or have read. You can also search for new books to be added to any of the existing sheves.
+
+- The main page displays a list of shelves: Currently Reading, Want to Read, Read.
+- Each book has a control that lets you select its shelf.
+- When you select a different shelf using the control, the book moves there.
+- There is a search page that allows you to find books to add to your library.
+- The search page has a text input that is used to find books. As the value of the text input changes, the books that match that query are displayed on the page, along with a control that lets you add the book to your library.
+- When a book is on a bookshelf, it has the same state on both the main page and the search page.
+- The search page also has a link to / (the root URL), which leads back to the main page.
+- When you navigate back to the main page from the search page, you instantly see all of the selections made on the search page in your library.
+
+The project emphasizes using React to build the application and provides an API server and client library that is used to persist information as you interact with the application.
+
+A simple starter template was provided by Udacity to save time. It contained a static example of the CSS and HTML markup to be used, without any of the React code needed to complete the project. Interactivity was added to the app by refactoring the initial static code.
+
+## Extra Features
+
+Features that were not required by the project rubric were added. They are mentioned here:
+
+- Drag and Drop between shelves on the main page.
+- Option to favourite a book.
+- Custom CSS and small styling effects.
 
 ## Getting Started
 
@@ -11,72 +34,18 @@ All you need to get started is here:
 - Install all project dependencies with `npm install`
 - Start the development server with `npm start`
 
-## What You're Getting
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-```bash
-├── README.md - # This file.
-├── SEARCH_TERMS.md # The whitelisted short collection of available search terms to use with this app.
-├── package.json # npm package manager file. It's unlikely that you'll need to modify this.
-├── public
-│   ├── favicon.ico # React Icon, You may change if you wish.
-│   └── index.html # DO NOT MODIFY
-└── src
-    ├── App.css # Styles for your app. Feel free to customize this as you desire.
-    ├── App.js # This is the root of your app. Contains static HTML right now.
-    ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
-    ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
-    ├── icons # Helpful images for your app. Use at your discretion.
-    │   ├── add.svg
-    │   ├── arrow-back.svg
-    │   └── arrow-drop-down.svg
-    ├── index.css # Global styles. You probably won't need to change anything here.
-    └── index.js # You should not need to modify this file. It is used for DOM rendering only.
-```
-
-Remember that good React design practice is to create new JS files for each component and use import/require statements to include them where they are needed.
+The page will reload if you make edits, and you will also see any lint errors in the console.
 
 ## Backend Server
 
-To simplify your development process, we've provided a backend server for you to develop against. The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods you will need to perform necessary operations on the backend:
+To simplify the development process, a backend server was provided to develop against. The provided file [`BooksAPI.js`](src/BooksAPI.js) contains all the methods needed to perform necessary operations on the backend:
 
-- [`getAll`](#getall)
-- [`update`](#update)
-- [`search`](#search)
-
-### `getAll`
-
-Method Signature:
-
-```js
-getAll();
-```
-
-- Returns a Promise which resolves to a JSON object containing a collection of book objects.
-- This collection represents the books currently in the bookshelves in your app.
-
-### `update`
-
-Method Signature:
-
-```js
-update(book, shelf);
-```
-
-- book: `<Object>` containing at minimum an `id` attribute
-- shelf: `<String>` contains one of ["wantToRead", "currentlyReading", "read"]
-- Returns a Promise which resolves to a JSON object containing the response data of the POST request
-
-### `search`
-
-Method Signature:
-
-```js
-search(query);
-```
-
-- query: `<String>`
-- Returns a Promise which resolves to a JSON object containing a collection of a maximum of 20 book objects.
-- These books do not know which shelf they are on. They are raw results only. You'll need to make sure that books have the correct state while on the search page.
+- [`getAll`](#getall) = This collection represents the books currently in the bookshelves in your app.
+- [`update`](#update) = Used to update the shelf of a book.
+- [`search`](#search) = These books are raw results only. They do not know which shelf they are on.
 
 ## Important
 
