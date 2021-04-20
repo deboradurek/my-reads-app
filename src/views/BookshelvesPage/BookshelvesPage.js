@@ -23,8 +23,8 @@ const BookshelvesPage = ({ books, onUpdateBook }) => {
     <div className="list-books-content">
       <div>
         <form className="favourites-option">
-          <Link to="/favourites">
-            <button>See Favourites</button>
+          <Link to="/favourites" className="favourites-btn">
+            See Favourites
           </Link>
         </form>
       </div>
@@ -44,8 +44,8 @@ const BookshelvesPage = ({ books, onUpdateBook }) => {
           ))}
         </DragDropContext>
         <div className="open-search">
-          <Link to="/search">
-            <button>Add a book</button>
+          <Link to="/search" className="open-search-btn">
+            Add a book
           </Link>
         </div>
       </div>

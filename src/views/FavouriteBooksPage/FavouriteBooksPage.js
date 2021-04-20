@@ -10,8 +10,8 @@ const FavouriteBooksPage = ({ books, onUpdateBook }) => {
   return (
     <div>
       <div className="back-to-main">
-        <Link to="/">
-          <button className="close-search">Close</button>
+        <Link to="/" className="close-search">
+          Close
         </Link>
         <span>Back To Bookshelves</span>
       </div>
